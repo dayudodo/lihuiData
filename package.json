@@ -1,0 +1,26 @@
+{
+  "name": "li_hui_data",
+  "version": "1.0.0",
+  "description": "lihui excel manipulate",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lihui",
+    "excel",
+    "automatic"
+  ],
+  "author": "ange",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-md5": "^2.3.0",
+    "lodash": "^4.13.1",
+    "mongoose": "^4.5.5",
+    "quagga": "^0.11.4",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "node-zxing": "^0.1.4"
+  }
+}
