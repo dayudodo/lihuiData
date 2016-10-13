@@ -22,7 +22,7 @@ function decodeDirectory(dirName){
 	    	    else{ 
 	                if (out) {
 	                    // console.log(out, file)
-	                    fs.appendFile('checkProduct.txt', [out, file,'\n'], (err) => {
+	                    fs.appendFile('checkProduct.txt', `${out},${file}\n`, (err) => {
 	                      if (err) throw err;
 	                      console.log(`${out} was appended to file!`);
 	                    });

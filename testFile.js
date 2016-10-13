@@ -16,7 +16,7 @@ fs.writeFile('message.txt', strArr, (err) => {
 //   if (err) throw err;
 //   console.log('write line');
 // });
-fs.appendFile('message.txt', 'data to append', (err) => {
+fs.appendFile('message.txt', '1234987,123\n', (err) => {
   if (err) throw err;
   console.log('The "data to append" was appended to file!');
 });
