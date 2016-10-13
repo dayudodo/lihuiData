@@ -5,7 +5,7 @@ var options = {}
 var qrdecoder = require('node-zxing')(options);
 
 function decodeDirectory(dirName){
-	console.log(dirName)
+	console.log('decode barcode in:',dirName)
 	fs.readdir(dirName, function(err, files){
 	    if(err)console.log(err);
 	    // console.log(files);
@@ -21,7 +21,11 @@ function decodeDirectory(dirName){
 	    	  	}
 	    	    else{ 
 	                if (out) {
-	                    console.log(out, file)
+	                    // console.log(out, file)
+	                    fs.appendFile('checkProduct.txt', [out, file,'\n'], (err) => {
+	                      if (err) throw err;
+	                      console.log(`${out} was appended to file!`);
+	                    });
 	                }else{
 	                    console.log("no number :%s, remove...", path)
 	                    fs.rename(path, `./needManuals/null-${file}`)
