@@ -6,6 +6,8 @@ var qrdecoder = require('node-zxing')(options);
 
 function decodeDirectory(dirName){
 	console.log('decode barcode in:',dirName)
+	var DirectoryOfErrorImages = 'needManuals'
+
 	fs.readdir(dirName, function(err, files){
 	    if(err)console.log(err);
 	    // console.log(files);
@@ -17,7 +19,7 @@ function decodeDirectory(dirName){
 	    	  	if (err) {
 	    	  		// console.log(err)
 	    	  		console.log("can't :%s, remove...", path)
-	    	  		fs.rename(path, `./needManuals/need-${file}`)
+	    	  		fs.rename(path, `./${DirectoryOfErrorImages}/need-${file}`)
 	    	  	}
 	    	    else{ 
 	                if (out) {
@@ -28,7 +30,7 @@ function decodeDirectory(dirName){
 	                    });
 	                }else{
 	                    console.log("no number :%s, remove...", path)
-	                    fs.rename(path, `./needManuals/null-${file}`)
+	                    fs.rename(path, `./${DirectoryOfErrorImages}/null-${file}`)
 	                }
 	    	    	
 	    	    }
@@ -38,7 +40,6 @@ function decodeDirectory(dirName){
 
 	})   
 }
-
 
 function decodeOneFile(fileName){
 	qrdecoder.decode(fileName, function(err,out){
@@ -52,5 +53,5 @@ function decodeOneFile(fileName){
 }
 
 // decodeOneFile('./needManuals/20160910_094909-2.png')
-var dirName = './needManuals'
+// var dirName = './needManuals'
 decodeDirectory('./images')
